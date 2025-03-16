@@ -3,6 +3,11 @@ package class05_qs;
 import java.util.Stack;
 
 public class Code03_IsValid {
+
+    public static void main(String[] args) {
+
+    }
+
     //给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串 s ，判断字符串是否有效。
     //有效字符串需满足：
     //左括号必须用相同类型的右括号闭合。
@@ -28,10 +33,8 @@ public class Code03_IsValid {
 
             }
         }
-        return true;
+        return stack.isEmpty();
     }
 
-    public static void main(String[] args) {
 
-    }
 }
