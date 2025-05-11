@@ -16,7 +16,6 @@ public class Code10_InvertTree {
         }
         if (right != null) {
             invertTree(right, right.left, right.right);
-
         }
         //交换当前
         root.left = right;

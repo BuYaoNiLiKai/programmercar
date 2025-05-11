@@ -3,8 +3,6 @@ package class06_tree;
 import java.util.*;
 
 public class Code04_LevelOrder {
-
-
     public static List<List<Integer>> levelOrder(TreeNode root) {
 
         List<List<Integer>> res = new ArrayList<>();
