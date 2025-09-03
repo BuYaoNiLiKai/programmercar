@@ -1,5 +1,7 @@
 package class04_string;
 
+import java.util.Stack;
+
 public class Code02_ReverseWords {
     //给你一个字符串 s ，请你反转字符串中 单词 的顺序。
     //单词 是由非空格字符组成的字符串。s 中使用至少一个空格将字符串中的 单词 分隔开。
@@ -53,10 +55,50 @@ public class Code02_ReverseWords {
 
     }
 
+    public static String reverseString(String s) {
+        char[] arr = s.toCharArray();
+        Stack<Integer> border = new Stack<>(); // 存储各个单词的边界
+        int words = 0;
+        int count = 0;
+        boolean flag = true;// 找单词的开头
+        for (int i = 0; i < s.length(); i++) {
+            if (flag && arr[i] != ' ' && (i - 1 < 0 || arr[i - 1] == ' ')) {
+                //找开头
+                flag = false;
+                border.add(i);
+            }
+            if (!flag && arr[i] != ' ' && (i == s.length() - 1 || arr[i + 1] == ' ')) {
+                border.add(i);
+                flag = true;
+                count++;
+                words += border.get(border.size() - 1) - border.get(border.size() - 2) + 1;
+
+            }
+        }
+        char[] res = new char[words + count - 1];
+        int index = 0;
+        System.out.println(border);
+        while (!border.isEmpty()) {
+            int right = border.pop();
+            int left = border.pop();
+            while (left <= right) {
+                res[index++] = arr[left++];
+            }
+            if (!border.isEmpty()) {
+                res[index++] = ' ';
+            }
+
+        }
+        return String.valueOf(res);
+
+    }
+
     public static void main(String[] args) {
-        String s = "the sky is blue";
+        String s = "a good   example";
         String res = reverseWords(s);
         System.out.println(res);
+        String res1 = reverseString(s);
+        System.out.println(res1);
 
     }
 }
