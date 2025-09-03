@@ -1,4 +1,4 @@
-package class02_linkedlist;
+package class00_datastructure;
 
 public class LinkedListTest {
     public static void main(String[] args) {
